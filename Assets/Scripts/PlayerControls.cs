@@ -19,12 +19,25 @@ public class PlayerControls : MonoBehaviour
     {
         //Game Controller conponent
         gameController = GetComponent<GameController>();
+        // Speed for the game is at playing state
+        Time.timeScale = 1;
+        rb = GetComponent<Rigidbody2D>();
+        //Object Height equals the size of the height of the sprite
+        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        //If the left mouse button is clicked
+        if (Input.GetMouseButtonDown(0))
+        {
+            //The bird will float on the Y axis
+            //and float back down on the Y axis
+            rb.velocity = Vector2.up * velocity;
+        }
 
     }
 
